@@ -43,5 +43,5 @@ A different strategy would be to have an event driven design relying on topics. 
 
 #####  Data model
 
-![ER Diagram](./er.jpg)
+![ER Diagram](https://github.com/paradigmwit/wallet_microservice/blob/master/er.JPG)
 
