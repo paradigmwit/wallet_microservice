@@ -8,6 +8,8 @@ import com.leovegas.wallet.exceptions.WalletDoesntExistException;
 import com.leovegas.wallet.service.TransactionService;
 import com.leovegas.wallet.service.ValidatorService;
 import com.leovegas.wallet.service.WalletService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
+@Api(value = "Player Wallet Service")
 public class PlayerWalletController {
 
     @Autowired
@@ -29,6 +32,7 @@ public class PlayerWalletController {
     private ValidatorService validatorService;
 
     @GetMapping(value = "{playerName}/wallet", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Player wallet information")
     public ResponseEntity<WalletDTO> balance(@PathVariable ("playerName") final String playerName) throws PlayerDoesntExistException, WalletDoesntExistException {
 
         return ResponseEntity.ok(walletService.getWallet(playerName));
@@ -36,6 +40,7 @@ public class PlayerWalletController {
 
 
     @PostMapping(value = "/{playerName}/wallet/credit", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Credit to player wallet")
     public ResponseEntity<WalletDTO> performCredit(@PathVariable ("playerName") final String playerName,
                                    @RequestBody final TransactionDTO transactionDTO) throws ValidationException {
 
@@ -48,6 +53,7 @@ public class PlayerWalletController {
 
 
     @PostMapping(value = "/{playerName}/wallet/debit", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Debit from player account")
     public ResponseEntity<WalletDTO> performDebit(@PathVariable ("playerName") final String playerName,
                                   @RequestBody final TransactionDTO transactionDTO) throws ValidationException {
 
@@ -60,6 +66,7 @@ public class PlayerWalletController {
 
 
     @GetMapping(value = "/{playerName}/wallet/history", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Player transaction history")
     public List<TransactionDTO> history(@PathVariable ("playerName") final String playerName) throws ValidationException {
 
         TransactionDTO transactionDTO = new TransactionDTO();

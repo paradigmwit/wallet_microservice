@@ -1,0 +1,224 @@
+{
+	"info": {
+		"_postman_id": "87234784-1eb2-4674-bc40-11a7cf2b0397",
+		"name": "LeoVegas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "player",
+			"item": [
+				{
+					"name": "Get /players",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/players",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"players"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET player/{playerName}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/player/fahd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"player",
+								"fahd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST player",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"playerName\": \"Dolph\",\r\n    \"walletDTO\": {\r\n        \"balance\": 3000.0,\r\n        \"currencyCode\": \"SEK\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/player",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"player"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "wallet",
+			"item": [
+				{
+					"name": "GET /{playerName}/wallet",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/dolph/wallet",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"dolph",
+								"wallet"
+							]
+						},
+						"description": "balance"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /{playerName}/wallet/history",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/dolph/wallet/history",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"dolph",
+								"wallet",
+								"history"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /{playerName}/wallet/credit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"playerName\": \"dolph\",\r\n        \"transactionId\": \"T001\",\r\n        \"transactionAmount\": \"500\",\r\n        \"transactionDate\": \"2020-05-23T22:00:00.000+00:00\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/dolph/wallet/credit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"dolph",
+								"wallet",
+								"credit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /{playerName}/wallet/debit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"playerName\": \"dolph\",\r\n        \"transactionId\": \"T008\",\r\n        \"transactionAmount\": \"100\",\r\n        \"transactionDate\": \"2020-05-23T22:00:00.000+00:00\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/dolph/wallet/debit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"dolph",
+								"wallet",
+								"debit"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "GET /home",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
