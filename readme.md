@@ -45,3 +45,10 @@ A different strategy would be to have an event driven design relying on topics. 
 
 ![ER Diagram](https://github.com/paradigmwit/wallet_microservice/blob/master/er.JPG)
 
+---
+
+### Improvements 
+
+- Logging to file
+- Better test coverage
+- Exception message in JSON response

@@ -79,7 +79,6 @@ public class WalletService {
     @Transactional(propagation = Propagation.REQUIRED)
     private void createTransactionHistory(TransactionDTO transactionDTO, Player player) {
 
-        System.out.println("Player - " + player.getPlayerName() + " : " + player.getPlayerId());
         Transaction transaction = new Transaction();
         transaction.setTransactionId(transactionDTO.getTransactionId());
         transaction.setAmount(Long.parseLong(transactionDTO.getTransactionAmount()));

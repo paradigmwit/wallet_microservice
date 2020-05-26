@@ -10,4 +10,5 @@ public class WalletApplication {
 		SpringApplication.run(WalletApplication.class, args);
 	}
 
+	//TODO: Add unit tests
 }
