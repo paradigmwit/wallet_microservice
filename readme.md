@@ -6,6 +6,9 @@
 - cd wallet_microservice
 - mvn spring-boot:run
 - profit?
+
+**Note** - the H2 database has been bundled as a file with the code for easy deployment. There will not be synchronization of data across muliple instances of the application. 
+
 ---
 
 ### Endpoints
@@ -49,6 +52,10 @@ A different strategy would be to have an event driven design relying on topics. 
 
 ### Improvements 
 
+- Use Postgres for better scaling. Currently behaving as Database per Instance without synchronization.
 - Logging to file
-- Better test coverage
-- Exception message in JSON response
+- Automatic Test coverage
+- Exception message in JSON response, messages are getting lost at the moment
+- Currency Code to be populated from an enum of supported currencies
+- API documentation for models, more detail 
+- Use ValidatorService across the application
